@@ -44,3 +44,10 @@ SERP_API_KEY=your_serp_api_key
 3. Select the response mode (Basic or Enhanced)
 4. Click the search button
 5. The AI will generate a response based on the search results
+
+## Future Improvements
+
+1. Add user authentication and chat history
+2. Cache most used recent queries
+3. Add streaming to responses
+4. Multimedia queires and responses
