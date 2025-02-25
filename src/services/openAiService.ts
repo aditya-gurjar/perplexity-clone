@@ -170,10 +170,10 @@ Query: "${query}"
 Results:
 ${results.map((r, i) => `${i}: ${r.title}\n${r.snippet}`).join('\n\n')}
 
-Return only a JSON array of indices, like: [1,4,2,0,3]`;
+Return only a JSON array of indices, like: [1,4,2,0,3] in order of higher to lower relevance.`;
 
   const response = await openai.chat.completions.create({
-    model: "gpt-4",
+    model: "gpt-4o-mini",
     messages: [
       {
         role: "system",
