@@ -1,17 +1,18 @@
 import React, { useState } from 'react';
 
 interface SearchBoxProps {
-  onSearch: (query: string) => void;
+  onSearch: (query: string, enhanced: boolean) => void;
   isLoading: boolean;
 }
 
 const SearchBox: React.FC<SearchBoxProps> = ({ onSearch, isLoading }) => {
   const [query, setQuery] = useState('');
+  const [enhanced, setEnhanced] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (query.trim()) {
-      onSearch(query);
+      onSearch(query, enhanced);
     }
   };
 
@@ -34,6 +35,18 @@ const SearchBox: React.FC<SearchBoxProps> = ({ onSearch, isLoading }) => {
           >
             {isLoading ? 'Searching...' : 'Search'}
           </button>
+        </div>
+        <div className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            id="enhanced"
+            checked={enhanced}
+            onChange={(e) => setEnhanced(e.target.checked)}
+            className="h-4 w-4 text-blue-600"
+          />
+          <label htmlFor="enhanced" className="text-sm text-gray-700">
+            Enhanced mode (deeper analysis of top results)
+          </label>
         </div>
         <p className="text-sm text-gray-500">
           Ask a question or enter a search term to get AI-powered responses with citations

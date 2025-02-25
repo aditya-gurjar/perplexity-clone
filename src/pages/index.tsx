@@ -13,14 +13,17 @@ export default function Home() {
   const [searchResults, setSearchResults] = useState<SearchResult[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-  const handleSearch = async (query: string) => {
+  const handleSearch = async (query: string, enhanced: boolean) => {
     setIsLoading(true);
     setSearchQuery(query);
     setError(null);
     
     try {
       const response = await axios.get<CombinedResponse>('/api/generate', {
-        params: { q: query }
+        params: { 
+          q: query,
+          enhanced: enhanced 
+        }
       });
       
       setAIResponse(response.data.aiResponse);

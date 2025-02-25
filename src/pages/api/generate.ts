@@ -17,7 +17,8 @@ export default async function handler(
     });
   }
 
-  const { q } = req.query;
+  const { q, enhanced } = req.query;
+  const isEnhanced = enhanced === 'true';
   
   if (!q || typeof q !== 'string') {
     return res.status(400).json({ 
@@ -34,7 +35,7 @@ export default async function handler(
     const searchResults = await searchWithSerpApi(q);
     
     // Step 2: Generate AI response based on search results
-    const aiResponse = await generateAIResponse(q, searchResults);
+    const aiResponse = await generateAIResponse(q, searchResults, isEnhanced);
     
     // Step 3: Return combined response
     return res.status(200).json({
