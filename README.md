@@ -1,9 +1,35 @@
+# AI Search Assistant
 
-# Perplexity AI Clone
+A Next.js application that combines web search with AI-powered responses, similar to Perplexity AI. The application searches the web for relevant information and generates comprehensive answers with citations.
 
-## Overview
+## Features
 
-This project is a clone of the Perplexity AI search engine. It uses the SerpApi and OpenAI API to generate responses based on search results. It first fetches search results from SerpApi and then uses OpenAI API to generate a response based on the search results.
+- Web search using SerpAPI
+- AI-powered responses using OpenAI GPT-4
+- Two response modes:
+  - Basic: Quick responses based on search snippets
+  - Enhanced: Deeper analysis using full webpage content
+- Citation support with clickable references
+- Clean, responsive UI
+
+## Tech Stack
+
+- Next.js
+- TypeScript
+- OpenAI API
+- SerpAPI
+- Firecrawl API (for enhanced mode)
+- Tailwind CSS
+
+## Environment Variables
+
+Create a `.env.local` file with the following:
+
+```
+FIRECRAWL_API_KEY=your_firecrawl_api_key
+OPENAI_API_KEY=your_openai_api_key
+SERP_API_KEY=your_serp_api_key
+```
 
 ## Setup
 
@@ -15,5 +41,6 @@ This project is a clone of the Perplexity AI search engine. It uses the SerpApi 
 
 1. Open the development server
 2. Enter a query in the search bar
-3. Click the search button
-4. The AI will generate a response based on the search results
+3. Select the response mode (Basic or Enhanced)
+4. Click the search button
+5. The AI will generate a response based on the search results
